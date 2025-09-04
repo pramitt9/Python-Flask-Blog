@@ -1,0 +1,23 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_uri":"mysql+pymysql://root:@localhost/tech_blog",
+        "prod_uri":"mysql+pymysql://root:@localhost/tech_blog",
+        "ig_url": "https://www.instagram.com/pramit_t",
+        "gh_url": "https://github.com/pramitt9",
+        "blog_name": "TechForTechies",
+        "gmail-user":"pramittiwari9@gmail.com",
+        "gmail-pass":"fqxf zjia zdxa xyoe",
+        "about": "Hi I'm pramit .",
+        "no_of_posts": 4,
+        "secret_key":"4598d45dca10349190f231346cf8e7a38e54d59226c28853cfb522a60a32ae5e",
+        "admin":"Pramit",
+        "admin_pass":"password",
+        "upload_location":"D:\\python\\blog\\static\\images>"
+
+
+    }
+
+
+}

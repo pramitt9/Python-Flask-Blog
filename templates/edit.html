@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{%block body%}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Admin Panel</h1>
+                            <span class="subheading">Manage your posts here.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+
+                    <h1>Basic Actions</h1>
+          <div class="row">
+              <a href="/dashboard"><button class="btn btn-primary text-uppercase">Dashboard Home</button></a>
+
+              <a href="/logout"><button class="btn btn-primary text-uppercase">Logout</button></a>
+              <hr>
+         
+
+          <h1>Add/Edit Posts</h1> 
+          
+           <form action="{{ url_for('edit', sno=post.SNo if post else 0) }}" method="post">
+                     <div class="form-floating">
+        <input class="form-control" id="name" name="title" type="text"
+               value="{{ post.title if post else '' }}" placeholder="Enter title..." required>
+        <label for="name">Title</label>
+    </div>
+    <input class="form-control" id="postedby" name="postedby" type="text" 
+       value="{{ post.postedby if post else '' }}" placeholder="Posted by..." required>
+
+    <div class="form-floating">
+        <input class="form-control" id="tline" name="tline" type="text"
+               value="{{ post.tagline if post else '' }}" placeholder="Tag line" required>
+        <label for="tline">Tagline</label>
+    </div>
+
+    <div class="form-floating">
+        <input class="form-control" id="slug" name="slug" type="text"
+               value="{{ post.slug if post else '' }}" placeholder="Slug" required>
+        <label for="slug">Slug</label>
+    </div>
+
+    <div class="form-floating">
+        <textarea class="form-control" id="content" name="content" style="height:12rem" required>
+{{ post.content if post else '' }}</textarea>
+        <label for="content">Content</label>
+    </div>
+
+    <div class="form-floating">
+        <input class="form-control" id="img_file" name="img_file" type="text"
+               value="{{ post.img_file if post else '' }}" placeholder="Image file" required>
+        <label for="img_file">Image File</label>
+    </div>
+
+    <br>
+    <button class="btn btn-primary text-uppercase" type="submit">Save Post</button>
+</form>
+        
+ 
+                    <!-- Pager-->
+                  
+                </div>
+            </div>
+        </div>
+{%endblock%}

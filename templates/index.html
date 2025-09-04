@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                <div class="site-heading">
+                    <h1 class="fw-bold">Tech FOR Techies</h1>
+                    <span class="subheading fst-italic">For ALL your Tech News</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container px-4 px-lg-5 my-5">
+    <div class="row gx-5 gy-5">
+        {% for post in posts %}
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100 post-card">
+                <div class="card-body">
+                    <a href="{{ url_for('post', post_slug=post.slug) }}" class="text-decoration-none text-dark">
+                        <h2 class="card-title h4 fw-bold">{{ post.title }}</h2>
+                        <h3 class="card-subtitle mb-3 text-muted small">{{ post.tagline }}</h3>
+                        <p class="card-text">{{ post.content[0:150] }}...</p>
+                    </a>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-muted small">
+                    Posted by <strong>{{ post.postedby }}</strong> on {{ post.date }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+<hr>
+    <!-- Pager -->
+<div class="d-flex justify-content-between mb-4">
+    {% if pagination.has_prev %}
+        <a class="btn btn-secondary text-uppercase" href="{{ url_for('index', page=pagination.prev_num) }}">
+            ← Newer Posts
+        </a>
+    {% else %}
+        <span></span>
+    {% endif %}
+
+    {% if pagination.has_next %}
+        <a class="btn btn-primary text-uppercase" href="{{ url_for('index', page=pagination.next_num) }}">
+            Older Posts →
+        </a>
+    {% endif %}
+</div>
+</div>
+
+{% endblock %}

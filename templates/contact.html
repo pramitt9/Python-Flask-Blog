@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/contact-bg.jpg') }}')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading text-center text-white">
+          <h1 class="fw-bold display-4">Contact Me</h1>
+          <span class="subheading fs-5 fst-italic">Have questions? I have answers.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="my-5">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <p class="lead text-muted text-center mb-4">
+          Want to get in touch? Fill out the form below and I’ll get back to you as soon as possible.
+        </p>
+        <form action="/contact" method="post" class="contact-form p-4 p-md-5 shadow-lg rounded-4 bg-white">
+          <div class="form-floating mb-3">
+            <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required>
+            <label for="name">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..." required>
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter your phone number..." required>
+            <label for="phone">Phone Number</label>
+          </div>
+          <div class="form-floating mb-3">
+            <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem" required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <div class="text-center">
+            <button class="btn btn-primary btn-lg px-5 text-uppercase" type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
